@@ -10,7 +10,7 @@ export default function ReviewDetails({ navigation }) {
             <Card>
                 <Text>Hello!! { student.name } { student.surname }</Text>
                 <Text>{ student.name } you are {student.age} years old.</Text>
-                <Image source={student.rating} />
+                {/* <Image source={student.rating} /> */}
             </Card>
         </ImageBackground>
     )

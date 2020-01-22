@@ -3,7 +3,7 @@ import { ImageBackground, Text, FlatList, TouchableOpacity, View, Modal } from '
 import { globleStyle } from '../assets/styles/globleStyles';
 import Card from '../componets/shared/Card';
 import { MaterialIcons } from '@expo/vector-icons';
-import AddStudent from '../componets/forms/AddStudent';
+import AddStudent from '../componets/forms/AddStudent/AddStudent';
 
 export default function Home({ navigation }) {
     const [modalStatus, setModalStatus] = useState(false);
@@ -13,7 +13,14 @@ export default function Home({ navigation }) {
         { name: 'manthan', surname: 'gajjar', rating:require('../assets/images/rating-5.png'), age: 22 },
         { name: 'rohan', surname: 'chudasama', rating:require('../assets/images/rating-2.png'), age: 22 },
     ])
-
+    function addStudent(value){
+        value.key = Math.random().toString();
+        console.log(value)
+        setStudents((currentStudents) => {
+            return [value, ...currentStudents]
+        });
+        setModalStatus(false);
+    }
     return(
         <ImageBackground style={globleStyle.container} source={require('../assets/images/game_bg.png')}>
             <Modal visible={modalStatus}>
@@ -24,7 +31,7 @@ export default function Home({ navigation }) {
                         onPress={() => {setModalStatus(false)}}
                         style={globleStyle.modalCloseIcon}
                     />                    
-                    <AddStudent />
+                    <AddStudent addStudent={addStudent}/>
                 </View>
             </Modal>
             <Card>

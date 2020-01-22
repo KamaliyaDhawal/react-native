@@ -11,11 +11,10 @@ export const globleStyle = StyleSheet.create({
         borderColor: 'gray',
         borderBottomWidth: 1
     },
-    button: {
-        padding: 10,
-        margin: 15,
-        backgroundColor: 'green',
-        color: 'white',
-        width: 20
+    modalCloseIcon: {
+        flex: 0.2,
+        textAlign: 'right',
+        color: 'gray',
+        fontSize: 30
     }
 });
